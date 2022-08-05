@@ -26,7 +26,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "versionCode": 1
+      "versionCode": 1,
+      "package": "com.daodung101.CustomButtonMenu"
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -8,7 +8,7 @@ import axios from 'axios'
 const DetailsScreen = () => {
 
     const [advice, setAdvice] = useState('')
-
+    const [isLoading, setIsLoading] = useState(false)
     const getRandomId = (min, max)=>{
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -16,10 +16,15 @@ const DetailsScreen = () => {
     }
 
     const getAdvice = () => {
+        setIsLoading(true)
         axios.get('http://api.adviceslip.com/advice/'+ getRandomId(1,200)).then(response => {
             setAdvice(response.data.slip.advice)
+            setIsLoading(false)
+        }).catch(err => {
+            setIsLoading(false)
         })
     }
+
     return (
         <SafeAreaView style={{flex: 1}}>
             <View style={{flex: 1, padding: 16}}>
@@ -59,4 +64,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'grey',
     },
+    lottie: {
+        width: 100,
+        height: 100
+    }
 });

@@ -28,6 +28,11 @@ const Todo = ()=>{
             })
         )
     }
+    const handleKeyPress = (e) => {
+        if(e.nativeEvent.key === "Enter"){
+            handleAddTodo()
+        }
+    }
     return (
         <ImageBackground style={styles.bgStyle} source={require('../assets/images/BackgroundColor.jpg')}>
             <View style={styles.container}>
@@ -39,6 +44,7 @@ const Todo = ()=>{
                         value={inputValue}
                         placeholder={'Do it now !'}
                         placeholderTextColor="white"
+                        onKeyPress={handleKeyPress}
                     />
                     <TouchableOpacity onPress={()=> handleAddTodo()}>
                         <Icon name="plus" size={30} color="#900" style={{marginLeft: 15}}></Icon>
